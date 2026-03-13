@@ -39,7 +39,7 @@ namespace Student
                 string? option = Console.ReadLine();
                 option = option ?? string.Empty;
 
-                // parse numeric choice and map to enum
+                
                 if (!int.TryParse(option.Trim(), out var optNum))
                 {
                     Console.WriteLine("Invalid option, try again.");
@@ -84,7 +84,7 @@ namespace Student
                         }
                         else
                         {
-                            // search by full or partial name
+                            
                             var nameQuery = selInput.Trim();
                             selected = students.Find(s => ($"{s.FirstName} {s.LastName}".Equals(nameQuery, StringComparison.OrdinalIgnoreCase))
                                                            || s.FirstName.Equals(nameQuery, StringComparison.OrdinalIgnoreCase)
@@ -266,7 +266,7 @@ namespace Student
 
     public class Student
     {
-        // Student identity will be represented by name only (no numeric ID)
+        
         public string FirstName { get; set; } = string.Empty;
         public string MiddleName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
@@ -319,7 +319,7 @@ namespace Student
             int YearLevel;
             int.TryParse(Console.ReadLine() ?? "0", out YearLevel);
 
-            // Create the Student instance
+            
             var student = new Student
             {
                 FirstName = FirstName,
@@ -349,7 +349,7 @@ namespace Student
         public string SubjectCode { get; set; } = string.Empty;
         public int Units { get; set; } = 0;
 
-        // Static factory method that collects input and returns a populated StudentSubject
+   
         public static StudentSubject EnrollStudent(Student selected)
         {
             Console.WriteLine("\n-----STUDENT SUBJECT ENROLLMENT-----");
@@ -405,7 +405,7 @@ namespace Student
     }
     internal class StudentGrades
     {
-        // StudentId is no longer used; keep property for compatibility but default to 0
+       
         public int StudentId { get; set; } = 0;
         public string StudentName { get; set; } = string.Empty;
         public string SubjectName { get; set; } = string.Empty;
@@ -419,7 +419,7 @@ namespace Student
             Console.Write("Student ID: ");
             int.TryParse(Console.ReadLine() ?? "0", out var studentId);
 
-            // The caller is expected to manage the students collection; we set name empty here.
+           
             Console.Write("Subject Name: ");
             var subjectName = Console.ReadLine() ?? string.Empty;
             Console.Write("Subject Code: ");
